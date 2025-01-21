@@ -10,14 +10,12 @@
         src: wipe-disks.sh
         dest: /tmp/wipe-disks.sh
         mode: 0755
-    - name: Clearing the nodes: wiping and zapping disks
+    - name: Clearing the nodes, wiping and zapping disks
       ansible.builtin.shell: /bin/bash /tmp/wipe-disks.sh
     - name: Reboot the machines for changes to take effect
       shell: "sleep 5 && reboot" 
-
       async: 1
       poll: 0
-
     - name: Wait for the machines to come back online
       wait_for_connection:
         connect_timeout: 60
