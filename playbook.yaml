@@ -10,7 +10,7 @@
         src: wipe-disks.sh
         dest: /tmp/wipe-disks.sh
         mode: 0755
-    - name: Clearing the nodes from nbd drives
+    - name: Clearing the nodes: wiping and zapping disks
       ansible.builtin.shell: /bin/bash /tmp/wipe-disks.sh
     - name: Reboot the machines for changes to take effect
       shell: "sleep 5 && reboot" 
